@@ -10,9 +10,9 @@ response = {
 }
 
 # Function to save unknown user input in a txt file for future training
-def save_unknown_input(input_text):
+def save_unknown_input(user_query):
     with open("unknown_input.txt", "a") as file:
-        file.write(input_text + "\n")
+        file.write(user_query + "\n")
 
 # Function to get the best response to a user query using fuzzy matching
 def get_best_response(user_query):

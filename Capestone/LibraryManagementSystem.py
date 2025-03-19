@@ -24,9 +24,9 @@ def print_all_books():
         print("\nNo books available in the library.")
         return
     
-    print("\n📚 Available Books in the Library 📚")
+    print("\n Available Books in the Library ")
     for book in library_books:
-        status = "Available ✅" if book["available"] else "Borrowed ❌"
+        status = "Available " if book["available"] else "Borrowed"
         print(f"ID: {book['book_id']} | Title: {book['title']} | Author: {book['author']} | Status: {status}")
 
 # Function to search for a book
@@ -34,9 +34,9 @@ def search_book(title):
     found_books = [book for book in library_books if title.lower() in book["title"].lower()]
 
     if found_books:
-        print("\n🔍 Search Results:")
+        print("\n Search Results:")
         for book in found_books:
-            status = "Available ✅" if book["available"] else "Borrowed ❌"
+            status = "Available " if book["available"] else "Borrowed"
             print(f"ID: {book['book_id']} | Title: {book['title']} | Author: {book['author']} | Status: {status}")
     else:
         print("No books found with the given title.")
@@ -51,13 +51,13 @@ def borrow_book(book_id, user):
                     "user": user,
                     "borrowed_date": datetime.datetime.now()
                 }
-                print(f"✅ Book '{book['title']}' borrowed by {user} successfully.")
+                print(f" Book '{book['title']}' borrowed by {user} successfully.")
                 return
             else:
-                print(f"❌ Book '{book['title']}' is already borrowed.")
+                print(f"Book '{book['title']}' is already borrowed.")
                 return
 
-    print("⚠️ Book not available in the library or does not exist.")
+    print(" Book not available in the library or does not exist.")
 
 # Function to return a book
 def return_book(book_id):
@@ -66,14 +66,14 @@ def return_book(book_id):
             if book["book_id"] == book_id:
                 book["available"] = True  
                 borrowed_books.pop(book_id)  
-                print(f"✅ Book '{book['title']}' returned successfully.")
+                print(f" Book '{book['title']}' returned successfully.")
                 return
-    print(f"⚠️ Book with ID {book_id} is not borrowed or does not exist.")
+    print(f" Book with ID {book_id} is not borrowed or does not exist.")
 
 # Main function to interact with the user
 def main():
     while True:
-        print("\n📖 Library Management System 📖")
+        print("\n Library Management System ")
         print("1. Add a new book")
         print("2. Search for a book")
         print("3. Borrow a book")
@@ -102,11 +102,11 @@ def main():
             return_book(book_id)
 
         elif choice == "5":
-            print("📚 Exiting the Library Management System. Goodbye!")
+            print(" Exiting the Library Management System. Goodbye!")
             break
 
         else:
-            print("⚠️ Invalid choice. Please try again.")
+            print(" Invalid choice. Please try again.")
 
 # Start the program
 main()
